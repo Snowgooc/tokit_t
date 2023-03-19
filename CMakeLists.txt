@@ -1,0 +1,75 @@
+CMAKE_MINIMUM_REQUIRED (VERSION 3.5)
+
+
+# 工程名称
+# PROJECT (tokit_t)
+
+
+# 设置工程路径
+SET (PROJECT_ROOT ${PROJECT_SOURCE_DIR})                    # 工程路径
+SET (SRC_ROOT ${PROJECT_ROOT}/src)                          # src源路径
+SET (EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../bin)   # 执行文件输出路径
+SET (LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../lib)      # 动态库输出路径
+
+MESSAGE ("-- EXECUTABLE_OUTPUT_PATH: ${EXECUTABLE_OUTPUT_PATH}")
+MESSAGE ("-- LIBRARY_OUTPUT_PATH: ${LIBRARY_OUTPUT_PATH}")
+
+
+# 创建输出路径
+FILE (MAKE_DIRECTORY ${EXECUTABLE_OUTPUT_PATH})
+FILE (MAKE_DIRECTORY ${LIBRARY_OUTPUT_PATH})
+
+
+
+
+# 设置编译选项
+SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -std=c++14 ")
+
+
+
+
+
+
+# 设置库输出路径
+LINK_DIRECTORIES (${EXECUTABLE_OUTPUT_PATH})
+LINK_DIRECTORIES (${LIBRARY_OUTPUT_PATH})
+
+
+# 设置公共仓库路径
+SET (COMMON_ROOT ${SRC_ROOT}/common/common)
+
+
+# 引入公共库路径
+INCLUDE_DIRECTORIES (${COMMON_ROOT})
+INCLUDE_DIRECTORIES (${SRC_ROOT}/common)
+
+
+
+# 设置链接库文件
+SET (PROJECT_LIBRARY pthread)
+
+
+# 编译程序
+# ADD_SUBDIRECTORY (${SRC_ROOT})
+
+
+# 编译工具
+# ADD_SUBDIRECTORY (${PROJECT_ROOT}/tools)
+
+
+# 编译测试例子
+ADD_SUBDIRECTORY (${PROJECT_ROOT}/test)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
