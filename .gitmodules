@@ -1,0 +1,3 @@
+[submodule "src/tokit"]
+	path = src/tokit
+	url = git@github.com:Snowgooc/tokit.git
